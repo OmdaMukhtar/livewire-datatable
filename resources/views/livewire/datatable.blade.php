@@ -24,5 +24,9 @@
         </tbody>
     </table>
 
+    <div>
+        shows {{ $tasks->firstItem() }} to {{ $tasks->lastItem() }} out of  {{ $tasks->total() }}
+    </div>
+    {{ $tasks->links() }}
+
 </div>
-{{ $tasks->links() }}
