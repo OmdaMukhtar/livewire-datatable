@@ -16,4 +16,11 @@ class Task extends Model
 
         return 'uncomplete';
     }
+
+    // public function scopeOrderBy($query, $column, $direction)
+    // {
+    //     // dd($column, $direction);
+    //     dd($query->orderBy('name', 'desc'));
+    //     return $query->orderBy('name', 'desc');
+    // }
 }

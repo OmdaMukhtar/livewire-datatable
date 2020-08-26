@@ -1,13 +1,14 @@
-<div class="mt-100">
-    <table class="table" cellspacing="0" width="100%">
+<div style="margin-top:100px">
+    <table class="table bordered" cellspacing="0" width="100%">
         <thead>
           <tr>
             <th>#</th>
-            <th class="th-sm">Task
+            <th wire:click="sortBy('name')"
+                class="th-sm" style="cursor: pointer">Task
             </th>
-            <th class="th-sm">Status
+            <th wire:click="sortBy('status')" class="th-sm" style="cursor: pointer">Status
             </th>
-            <th class="th-sm">Start date
+            <th wire:click="sortBy('created_at')" class="th-sm" style="cursor: pointer">Start date
             </th>
           </tr>
         </thead>
@@ -22,4 +23,6 @@
             @endforeach
         </tbody>
     </table>
+
 </div>
+{{ $tasks->links() }}
