@@ -1,15 +1,20 @@
 <div style="margin-top:100px">
 
-    <div class="row">
-        <div class="col form-online">
+    <div class="row mb-2">
+        <div class="col form-inline">
             Per page : &nbsp;
-            <select wire:model="perPage">
-                <option value="">5</option>
+            <select wire:model="perPage" class="form-control">
                 <option value="">10</option>
                 <option value="">25</option>
                 <option value="">50</option>
                 <option value="">1000</option>
             </select>
+        </div>
+
+        <div class="col-md-6">
+            <input type="text" wire:model.debounce.30ms="search"
+                class="form-control"
+                placeholder="search task..">
         </div>
     </div>
 
@@ -38,9 +43,13 @@
         </tbody>
     </table>
 
-    <div>
-        shows {{ $tasks->firstItem() }} to {{ $tasks->lastItem() }} out of  {{ $tasks->total() }}
+    <div class="row">
+        <div class="col-md-9">
+            {{ $tasks->links() }}
+        </div>
+        <div class="col-md-3">
+            shows {{ $tasks->firstItem() }} to {{ $tasks->lastItem() }} out of  {{ $tasks->total() }}
+        </div>
     </div>
-    {{ $tasks->links() }}
 
 </div>

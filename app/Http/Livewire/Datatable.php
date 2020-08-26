@@ -15,13 +15,15 @@ class Datatable extends Component
      */
     public $sortBy = "name";
     public $sortDirection = 'desc';
-    public $perPage = 5;
+    public $perPage = 10;
+    public $search = '';
 
 
     public function render()
     {
-        $tasks = Task::orderBy($this->sortBy, $this->sortDirection)
-        ->paginate($this->perPage);
+        $tasks = Task::search($this->search)
+                ->orderBy($this->sortBy, $this->sortDirection)
+                ->paginate($this->perPage);
 
         return view('livewire.datatable', compact('tasks'));
     }

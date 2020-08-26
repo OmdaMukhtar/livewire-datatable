@@ -23,4 +23,11 @@ class Task extends Model
     //     dd($query->orderBy('name', 'desc'));
     //     return $query->orderBy('name', 'desc');
     // }
+
+    public function scopeSearch($query, $word)
+    {
+        return $query->where('name', 'like', "%{$word}%")
+                ->orWhere('status', 'like', "%{$word}%")
+                ->orWhere('user_id', 'like', "%{$word}%");
+    }
 }
