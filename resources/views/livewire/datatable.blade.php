@@ -1,4 +1,18 @@
 <div style="margin-top:100px">
+
+    <div class="row">
+        <div class="col form-online">
+            Per page : &nbsp;
+            <select wire:model="perPage">
+                <option value="">5</option>
+                <option value="">10</option>
+                <option value="">25</option>
+                <option value="">50</option>
+                <option value="">1000</option>
+            </select>
+        </div>
+    </div>
+
     <table class="table bordered" cellspacing="0" width="100%">
         <thead>
           <tr>
