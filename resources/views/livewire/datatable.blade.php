@@ -12,7 +12,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>11</td></tr>
+            @foreach ($tasks as $task)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $task->name }}</td>
+                <td>{{ $task->status }}</td>
+                <td>{{ $task->created_at }}</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
