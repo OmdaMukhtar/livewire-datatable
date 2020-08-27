@@ -1,6 +1,7 @@
 # Feature
-* sortBy
-* paginataion
+* SortBy
+* Paginataion
+* Search
 
 
 ## Requirement
