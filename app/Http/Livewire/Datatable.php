@@ -39,4 +39,9 @@ class Datatable extends Component
 
         $this->sortBy = $type;
     }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 }
