@@ -1,13 +1,13 @@
-<div style="margin-top:100px">
+<div style="margin-top:50px">
 
     <div class="row mb-2">
         <div class="col form-inline">
             Per page : &nbsp;
             <select wire:model="perPage" class="form-control">
-                <option value="">10</option>
-                <option value="">25</option>
-                <option value="">50</option>
-                <option value="">1000</option>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>1000</option>
             </select>
         </div>
 
@@ -29,6 +29,7 @@
             </th>
             <th wire:click="sortBy('created_at')" class="th-sm" style="cursor: pointer">Start date
             </th>
+            <th class="text-center">Setting</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,14 @@
                 <td>{{ $task->name }}</td>
                 <td>{{ $task->status }}</td>
                 <td>{{ $task->created_at }}</td>
+                <td class="text-center">
+                    <a href="#" class="btn btn-warning">
+                        <span class="fa fa-pencil"></span>
+                    </a>
+                    <button wire:click="delete({{ $task->id }})" class="btn btn-danger">
+                        <span class="fa fa-remove"></span>
+                    </button>
+                </td>
             </tr>
             @endforeach
         </tbody>

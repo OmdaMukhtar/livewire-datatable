@@ -28,6 +28,7 @@ class Datatable extends Component
         return view('livewire.datatable', compact('tasks'));
     }
 
+
     public function sortBy($type)
     {
         if($this->sortDirection == 'desc'){
@@ -43,5 +44,10 @@ class Datatable extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function delete($id)
+    {
+        optional(Task::find($id))->delete();
     }
 }
