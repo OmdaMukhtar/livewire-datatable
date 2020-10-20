@@ -14,13 +14,16 @@
         <div class="col-md-6">
             <input type="text" wire:model.debounce.30ms="search"
                 class="form-control"
-                placeholder="search task..">
+                placeholder="search task.." />
         </div>
     </div>
-
+    <div>
+        <button wire:click="deleteAll" class="btn btn-danger mb-1 btn-sm">Delete ({{ count($cars) }})</button>
+    </div>
     <table class="table bordered" cellspacing="0" width="100%">
         <thead>
           <tr>
+            <th><input type="checkbox" wire:click="allFields"></th>
             <th>#</th>
             <th wire:click="sortBy('name')"
                 class="th-sm" style="cursor: pointer">Task
@@ -35,6 +38,7 @@
         <tbody>
             @foreach ($tasks as $task)
             <tr>
+                <td><input type="checkbox" wire:model="cars" value="{{ $task->id }}"></td>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $task->name }}</td>
                 <td>{{ $task->status }}</td>
@@ -61,4 +65,12 @@
         </div>
     </div>
 
+    <p>Selected cars:</p>
+    <ul>
+        @forelse ($cars as $car)
+            <li>{{ $car }}</li>
+        @empty
+            <li>No cars selected</li>
+        @endforelse
+    </ul>
 </div>

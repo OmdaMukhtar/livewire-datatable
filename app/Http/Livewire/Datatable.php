@@ -17,7 +17,11 @@ class Datatable extends Component
     public $sortDirection = 'desc';
     public $perPage = 10;
     public $search = '';
+    public $cars = [];
 
+    public function mount()
+    {
+    }
 
     public function render()
     {
@@ -28,6 +32,11 @@ class Datatable extends Component
         return view('livewire.datatable', compact('tasks'));
     }
 
+    public function deleteAll()
+    {
+        Task::whereIn('id', $this->cars)->delete();
+        $this->cars = [];
+    }
 
     public function sortBy($type)
     {
